@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
     font-family: 'BBadr';
     src: url('../fonts/BBadr.eot?#') format('eot'),  /* IE6–8 */

@@ -28,7 +28,7 @@ const About = () => {
               -استفاده از وکیل یاب به معنی پذیرش سیاست ها و قوانین وکیل یاب است.
             </p>
         </div>
-        <div className=' lg:mt-[116px] xl:mt-[250px] 2xl:mt-[282px]'>
+        <div className='lg:mt-[100px] xl:mt-[250px] 2xl:mt-[75px]'>
             <Footer/>
         </div>
     </div>

@@ -24,8 +24,8 @@ const Navbar = () => {
         </div>
         <div>
           <ul className='hidden md:flex flex-row text-lg'>
-            <li className='pl-6'>ثبت نام</li>
-            <li className='pl-6'>ورود</li>
+            <li className='pl-6'><Link to={"/signup"}>ثبت نام</Link> </li>
+            <li className='pl-6'><Link to={"/Signin"}>ورود</Link></li>
             <li className='pl-6'><Link to={"/about"}>درباره ما</Link></li>
             <li className='pl-6'>مقالات حقوقی</li>
             <li className='pl-6'>پیگیری استعلام </li>
@@ -45,7 +45,7 @@ const Navbar = () => {
               )}
               </li>
             <li className='pl-6'>جستجوی پیشرفته</li>
-            <li className='pl-6'>صفحه اصلی</li>
+            <li className='pl-6'><Link to={"/"}>صفحه اصلی</Link> </li>
           </ul>
         </div>
 
@@ -79,7 +79,7 @@ const Navbar = () => {
               )}
               </li>
             <li className='p-3  border-b-2'>جستجوی پیشرفته</li>
-            <li className='p-3 '>صفحه اصلی</li>
+            <li className='p-3 '><Link to={"/home"}>صفحه اصلی</Link></li>
           </ul>
         </div>
 
