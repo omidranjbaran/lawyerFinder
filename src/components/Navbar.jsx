@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { FaSearch } from "react-icons/fa";
 import {AiOutlineMenu, AiOutlineClose } from 'react-icons/ai'
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useParams } from "react-router-dom";
 
 const Navbar = () => {
   const [moshaverh,setMoshaverh] = useState(false)
+  const [isActive,setIsActive] = useState(false)
   const [nav,setNav] = useState(false)
-
+  
   function handleMoshaverh(){
     setMoshaverh(!moshaverh)
   }
@@ -14,6 +15,26 @@ const Navbar = () => {
   function handleNav(){
     setNav(!nav)
   }
+
+  let previousTag = null;
+  
+  window.onload = function (){
+    let homePage = document.querySelector('ul li:last-child a')
+    handleClick(homePage)
+  }
+
+
+  function handleClick(param){
+    if(previousTag !== null){
+      previousTag.removeAttribute('style');
+      console.log(param);
+    }
+    console.log(param);
+    param.style.color = 'black';
+    previousTag = param;
+
+  }
+  
 
 
   return (
@@ -23,12 +44,12 @@ const Navbar = () => {
           <h1 className=' flex flex-row font-bold text-2xl'><FaSearch/>وکیل یاب</h1>
         </div>
         <div>
-          <ul className='hidden md:flex flex-row text-lg'>
-            <li className='pl-6'><Link to={"/signup"}>ثبت نام</Link> </li>
-            <li className='pl-6'><Link to={"/Signin"}>ورود</Link></li>
-            <li className='pl-6'><Link to={"/about"}>درباره ما</Link></li>
-            <li className='pl-6'>مقالات حقوقی</li>
-            <li className='pl-6'>پیگیری استعلام </li>
+            <ul className='hidden md:flex flex-row text-lg'>
+            <li onClick={(e)=>handleClick(e.target)} className='pl-6'><Link to={"/signup"}>ثبت نام</Link> </li>
+            <li onClick={(e)=>handleClick(e.target)} className='pl-6'><Link to={"/Signin"}>ورود</Link></li>
+            <li onClick={(e)=>handleClick(e.target)} className='pl-6 active:text-black'><Link to={"/about"}>درباره ما</Link></li>
+            <li className='pl-6 active:text-black'>مقالات حقوقی</li>
+            <li className='pl-6 active:text-black'>پیگیری استعلام </li>
             
             
             <li className='pl-6' onMouseEnter={handleMoshaverh} onMouseLeave={handleMoshaverh}>
@@ -45,7 +66,7 @@ const Navbar = () => {
               )}
               </li>
             <li className='pl-6'>جستجوی پیشرفته</li>
-            <li className='pl-6'><Link to={"/"}>صفحه اصلی</Link> </li>
+            <li onClick={(e)=>handleClick(e.target)} className='pl-6 active:text-black'><Link to={"/"}>صفحه اصلی</Link> </li>
           </ul>
         </div>
 
@@ -79,7 +100,7 @@ const Navbar = () => {
               )}
               </li>
             <li className='p-3  border-b-2'>جستجوی پیشرفته</li>
-            <li className='p-3 '><Link to={"/home"}>صفحه اصلی</Link></li>
+            <li  onClick={(e)=>handleClick(e.target)} className='p-3'><Link to={"/home"}>صفحه اصلی</Link></li>
           </ul>
         </div>
 

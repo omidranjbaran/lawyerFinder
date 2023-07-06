@@ -1,5 +1,6 @@
 import React from 'react'
 import Footer from '../components/Footer'
+import { useParams } from 'react-router-dom'
 
 const Signup = () => {
   return (
@@ -22,4 +23,4 @@ const Signup = () => {
   )
 }
 
-export default Signup
+export default Signup;
